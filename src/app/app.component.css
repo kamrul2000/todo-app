@@ -54,3 +54,33 @@
       margin-left: 10px;
       font-size: 10px;
   }
+.todo-list ul {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+ }
+.todo-list li {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     padding: 10px;
+     border-bottom: 1px solid #f2f2f2;
+     font-size: 12px;
+ }
+  .todo-list li input[type="checkbox"] {
+      margin-right: 10px;
+  }
+  .todo-list li label {
+      flex: 1;
+
+  }
+.todo-list li button {
+    border: none;
+    background-color: transparent;
+    color: #4285f4;
+    cursor: pointer;
+}
+.fa {
+    margin: 10px;
+    cursor: pointer;
+}
