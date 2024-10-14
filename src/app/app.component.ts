@@ -19,8 +19,19 @@ export class AppComponent {
   }
   addTodo():void{
     console.log(this.todo)
-    this.todo.id=this.todoList.length+1;
-    this.todoList.push({...this.todo});
+    if(this.todo.id){
+      this.todoList=this.todoList.map(o=>{
+        if(o.id==this.todo.id){
+          o.title=this.todo.title;
+        }
+        return o;
+      })
+    }
+    else{
+      this.todo.id = this.todoList.length + 1;
+      this.todoList.push({ ...this.todo });
+    }
+    
     console.log(this.todoList);
     this.todo={
       title:'',
@@ -28,6 +39,6 @@ export class AppComponent {
     }
   }
   editTodo(todo:Todo):void{
-    this.todo=todo
+    this.todo={...todo}
   }
 }
