@@ -9,7 +9,7 @@
       <li *ngFor="let item of todoList">
         <label for="tasks">{{item.title}}</label>
         <i (click)="editTodo(item)" class="fa fa-pencil"></i>
-        <i class="fa fa-times"></i>
+        <i (click)="deleteTodo(item.id)" class="fa fa-times"></i>
       </li>
     </ul>
   </div>

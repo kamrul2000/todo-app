@@ -13,9 +13,12 @@ import { Todo } from './model';
 })
 export class AppComponent {
   todoList:Todo []=[];
-  todo:Todo={
-    title:'',
-    id:null
+  todo: Todo = this.initTodo;
+  get initTodo():Todo{
+    return{
+      title: '',
+      id: null
+    }
   }
   addTodo():void{
     console.log(this.todo)
@@ -28,17 +31,17 @@ export class AppComponent {
       })
     }
     else{
-      this.todo.id = this.todoList.length + 1;
+      this.todo.id = Date.now();
       this.todoList.push({ ...this.todo });
     }
     
     console.log(this.todoList);
-    this.todo={
-      title:'',
-      id:null
-    }
+    this.todo=this.initTodo;
   }
   editTodo(todo:Todo):void{
     this.todo={...todo}
+  }
+  deleteTodo(id:number):void{
+    this.todoList=this.todoList.filter(o=>o.id!=id)
   }
 }
