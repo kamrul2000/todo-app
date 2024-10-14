@@ -3,7 +3,7 @@
     <h1>Todo list</h1>
     <div>
       <input [(ngModel)]="todo.title" type="text" placeholder="Add a new task..">
-      <button [disabled]="!todo.title" (click)="addTodo()" type="submit">Add</button>
+      <button [disabled]="!todo.title" (click)="addTodo()" type="submit">{{todo.id?'Update':'Add'}}</button>
     </div>
     <ul>
       <li *ngFor="let item of todoList">
