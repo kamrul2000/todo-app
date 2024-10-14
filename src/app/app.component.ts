@@ -1,13 +1,33 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms'; 
+import { CommonModule } from '@angular/common';
+import { Todo } from './model';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FormsModule, CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'todo-app';
+  todoList:Todo []=[];
+  todo:Todo={
+    title:'',
+    id:null
+  }
+  addTodo():void{
+    console.log(this.todo)
+    this.todo.id=this.todoList.length+1;
+    this.todoList.push({...this.todo});
+    console.log(this.todoList);
+    this.todo={
+      title:'',
+      id:null
+    }
+  }
+  editTodo(todo:Todo):void{
+    this.todo=todo
+  }
 }
