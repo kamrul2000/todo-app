@@ -3,14 +3,32 @@
     <h1>Todo list</h1>
     <div>
       <input [(ngModel)]="todo.title" type="text" placeholder="Add a new task..">
-      <button [disabled]="!todo.title" (click)="addTodo()" type="submit">{{todo.id?'Update':'Add'}}</button>
+      
+      <!-- Date Picker for task -->
+      <input [(ngModel)]="todo.date" type="date" required>
+      <input [(ngModel)]="todo.time" type="time" required>
+      
+      <select [(ngModel)]="todo.priority">
+        <option value="high">High Priority</option>
+        <option value="medium">Medium Priority</option>
+        <option value="low">Low Priority</option>
+      </select>
+      <button [disabled]="!todo.title" (click)="addTodo()" type="submit">{{ todo.id ? 'Update' : 'Add' }}</button>
     </div>
-    <ul>
-      <li *ngFor="let item of todoList">
-        <label for="tasks">{{item.title}}</label>
-        <i (click)="editTodo(item)" class="fa fa-pencil"></i>
-        <i (click)="deleteTodo(item.id)" class="fa fa-times"></i>
-      </li>
-    </ul>
+
+    <!-- Task List with Serial Number -->
+    <!-- Task List with Serial Number -->
+<ul>
+  <li *ngFor="let item of todoList; let i = index">
+    <span>{{ i + 1 }}.</span> 
+    <input type="checkbox" [(ngModel)]="item.completed" (click)="toggleComplete(item)" />
+    <label [ngClass]="{ completed: item.completed }">{{ item.title }} ({{ item.priority }})</label>
+    <span class="task-date">{{ item.date }}</span> <!-- Show task date -->
+    <i (click)="editTodo(item)" class="fa fa-pencil"></i>
+    <!-- Only show delete button if item.id is not null -->
+    <i *ngIf="item.id !== null" (click)="deleteTodo(item.id)" class="fa fa-times"></i>
+  </li>
+</ul>
+
   </div>
 </div>

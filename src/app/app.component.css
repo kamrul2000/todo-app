@@ -1,86 +1,127 @@
-*{
+* {
     box-sizing: border-box;
 }
- body {
-     margin: 0;
-     font-family: sans-serif;
-     background-color: #f2f2f2;
- }
-.container {
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       justify-content: center;
-       margin-top: 100px;
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
 }
- .todo-list {
-     display: flex;
-     flex-direction: column;
-     width: 400px;
-     background-color: white;
-     border-radius: 5px;
-     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
- }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
 .todo-list h1 {
-       text-align: center;
-       margin: 0;
-       padding: 20px;
-       background-color: #4285f4;
-       color: white;
-       border-radius: 5px 5px 0 0;
-   }
+    text-align: center;
+    margin: 0;
+    padding: 15px;
+    background-color: #4285f4;
+    color: white;
+    border-radius: 8px 8px 0 0;
+}
+
 .todo-list div {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px;
-    border-top: 1px solid #f2f2f2;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 0;
 }
-.todo-list div input[type="text"] {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      font-size: 10px;
-      border: 1px solid;
-  }
-  .todo-list div button {
-      padding: 7px 15px;
-      border: none;
-      border-radius: 5px;
-      background-color: #4285f4;
-      color: white;
-      cursor: pointer;
-      margin-left: 10px;
-      font-size: 10px;
-  }
-.todo-list ul {
-     list-style: none;
-     margin: 0;
-     padding: 0;
- }
-.todo-list li {
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     padding: 10px;
-     border-bottom: 1px solid #f2f2f2;
-     font-size: 12px;
- }
-  .todo-list li input[type="checkbox"] {
-      margin-right: 10px;
-  }
-  .todo-list li label {
-      flex: 1;
 
-  }
-.todo-list li button {
+.todo-list div input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.todo-list div select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.todo-list div button {
+    padding: 10px;
     border: none;
-    background-color: transparent;
-    color: #4285f4;
+    border-radius: 5px;
+    background-color: #4285f4;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.todo-list div button:disabled {
+    background-color: #ccc;
+}
+
+.todo-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.todo-list li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.todo-list li:last-child {
+    border-bottom: none;
+}
+
+.todo-list li label {
+    flex: 1;
+    font-size: 14px;
+}
+
+.todo-list li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.todo-list li i {
+    margin-left: 10px;
     cursor: pointer;
 }
+
+.todo-list li i.fa-pencil {
+    color: #f1c40f;
+}
+
+.todo-list li i.fa-times {
+    color: #e74c3c;
+}
+
 .fa {
-    margin: 10px;
-    cursor: pointer;
+    font-size: 16px;
+}
+input[type="text"],
+input[type="date"],
+select {
+    margin: 10px 5px;
+}
+
+@media (max-width: 480px) {
+    .todo-list {
+        width: 90%;
+    }
 }
