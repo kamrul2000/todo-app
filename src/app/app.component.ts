@@ -12,17 +12,17 @@ import { Todo } from './model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  todoList: Todo[] = this.loadFromLocalStorage(); // Load from local storage
+  todoList: Todo[] = this.loadFromLocalStorage(); 
   todo: Todo = this.initTodo;
 
   get initTodo(): Todo {
     return {
       title: '',
       id: null,
-      priority: 'low',  // Default priority
-      date: '',         // Default date
-      time: '',         // Default time
-      completed: false  // Default completion status
+      priority: 'low',  
+      date: '',         
+      time: '',         
+      completed: false  
     };
   }
 
@@ -31,10 +31,10 @@ export class AppComponent {
   addTodo(): void {
     if (!this.todo.date || !this.todo.time) {
       alert('Please fill out both the date and time.');
-      return; // Exit if either date or time is not provided
+      return; 
     }
 
-    // Rest of the addTodo logic remains the same
+    
     if (this.todo.id) {
       this.todoList = this.todoList.map(o => {
         if (o.id == this.todo.id) {
@@ -51,7 +51,7 @@ export class AppComponent {
       this.todoList.push({ ...this.todo });
     }
 
-    // Sort tasks by priority
+
     this.todoList.sort((a, b) => this.getPriorityValue(b.priority || 'low') - this.getPriorityValue(a.priority || 'low'));
 
     this.todo = this.initTodo;
@@ -73,7 +73,7 @@ export class AppComponent {
 
   toggleComplete(todo: Todo): void {
     todo.completed = !todo.completed;
-    this.saveToLocalStorage(); // Save updated completed status to local storage
+    this.saveToLocalStorage(); 
   }
 
   getPriorityValue(priority: string): number {
@@ -85,7 +85,7 @@ export class AppComponent {
     }
   }
 
-  // Local storage methods
+
   saveToLocalStorage(): void {
     localStorage.setItem('todoList', JSON.stringify(this.todoList));
   }
